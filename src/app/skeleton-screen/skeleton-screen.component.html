@@ -1,0 +1,39 @@
+
+<div [id]="'skeleton-wrapper'">
+
+  <div *ngIf="showHeader" [className]="'skeleton-text-header skeleton-bar2'" ></div>
+  <div *ngIf="showToolbar" [className]="'skeleton-toolbar'" [ngStyle]="{'text-align': toolbarOrientation}">
+    <div [className]="'skeleton-toolbar-item skeleton-bar2'" *ngFor="let items of arrayForToolbarItems">
+    </div>
+  </div>
+
+  <div *ngIf="showExtraHeaderSpace" [id]="'extra-header-space'"></div>
+  <div [className]="'skeleton-content-wrapper'">
+    <div [className]="'skeleton-column-wrapper'" [ngStyle]="{'column-count': numberOfListColumns}" >
+      <div *ngIf="textLength==='even'; else unevenBlock">
+        <div *ngFor="let elem of arrayForListEntries" [id]="'skeleton-list-wrapper-even'">
+          <div *ngIf="showListIcon; else elseBlock" >
+            <div [className]="'skeleton-list-circle skeleton-bar2'" ></div>
+            <div [className]="'skeleton-list-content skeleton-bar2'" ></div>
+          </div>
+          <ng-template #elseBlock>
+            <div [className]="'skeleton-list-content skeleton-list-content-no-circle skeleton-bar2'" ></div>
+          </ng-template>
+        </div>
+      </div>
+
+      <ng-template #unevenBlock>
+        <div *ngFor="let elem of arrayForListEntries" [id]="'skeleton-list-wrapper'">
+          <div *ngIf="showListIcon; else elseBlock" >
+            <div [className]="'skeleton-list-circle skeleton-bar2'"></div>
+            <div [className]="'skeleton-list-content skeleton-bar2'" ></div>
+          </div>
+          <ng-template #elseBlock>
+            <div [className]="'skeleton-list-content skeleton-list-content-no-circle skeleton-bar2'" ></div>
+          </ng-template>
+        </div>
+      </ng-template>
+
+    </div>
+  </div>
+</div>

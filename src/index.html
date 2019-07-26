@@ -2,13 +2,40 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>TestSite</title>
+  <title>Micro Focus - Demo</title>
   <base href="/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="preload" href="./assets/reference-admin-app/styles.css" as="style" onload="this.rel='stylesheet'">
+  <!--link rel="stylesheet" href="./assets/reference-admin-app/styles.css"-->
+  <style>
+    #skeletons {
+      position: absolute;
+    }
+
+    #application-content {
+      /*
+      Only for dev purpose
+      display: none;*/
+      position: absolute;
+      opacity: 0;
+    }
+  </style>
 </head>
-<body>
-  <app-root></app-root>
+  <body>
+    <div>
+      <app-test></app-test>
+    </div>
+
+    <!--div id="application-content">
+      <app-root></app-root>
+    </div-->
+
+    <!--script [defer]="true" type="text/javascript" src="./assets/reference-admin-app/runtime.js"></script>
+    <script [defer]="true" type="text/javascript" src="./assets/reference-admin-app/es2015-polyfills.js" nomodule></script>
+    <script [defer]="true" type="text/javascript" src="./assets/reference-admin-app/polyfills.js"></script>
+    <script [defer]="true" type="text/javascript" src="./assets/reference-admin-app/main.js"></script-->
+
 </body>
 </html>

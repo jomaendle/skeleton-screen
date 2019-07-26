@@ -1,0 +1,34 @@
+{
+  "heroes": [
+    {
+      "id": "00000000-0000-0000-0000-000000000001",
+      "name": "Batman",
+      "version": 0,
+      "studioId": "99999999-9999-9999-9999-000000000001",
+      "active": true,
+      "superpowers": ["strong"],
+      "description": "Lorem ipsum Batman",
+      "winner": true
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000002",
+      "name": "Catwoman",
+      "version": 0,
+      "studioId": "99999999-9999-9999-9999-000000000001",
+      "active": true,
+      "superpowers": ["agile", "flexible"],
+      "description": "Lorem ipsum Catwoman",
+      "winner": false
+    },
+    {
+      "id": "00000000-0000-0000-0000-000000000002",
+      "name": "Doctor Strange",
+      "version": 0,
+      "studioId": "99999999-9999-9999-9999-000000000002",
+      "active": true,
+      "superpowers": ["strange"],
+      "description": "Lorem Doctor Strange",
+      "winner": false
+    }
+  ]
+}
