@@ -2,7 +2,7 @@ import {
   AfterContentChecked,
   AfterViewChecked,
   AfterViewInit,
-  Component, Inject,
+  Component, ElementRef, Inject, Input,
   OnInit,
   Renderer2,
   ViewChild
@@ -13,10 +13,16 @@ import { DOCUMENT } from '@angular/common';
 @Component({
   selector: 'app-test',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
 
-export class AppComponent implements OnInit, AfterViewInit, AfterViewChecked, AfterContentChecked {
+export class AppComponent implements OnInit, AfterViewInit, AfterContentChecked {
+
+  // Input parameters
+  amountOfRepeats: number;
+  amountOfColumns: number;
+
+  // DOM elements
   // @ts-ignore
   @ViewChild('mainContent') mainCont;
   // @ts-ignore
@@ -24,7 +30,6 @@ export class AppComponent implements OnInit, AfterViewInit, AfterViewChecked, Af
 
   // global variables
   applicationDiv: null;
-  amountOfRepeats = 8;
   repeatArray = null;
   title = 'Demo';
   animationDuration = 800;    // in milliseconds
@@ -33,62 +38,26 @@ export class AppComponent implements OnInit, AfterViewInit, AfterViewChecked, Af
 
   constructor(
     private renderer: Renderer2,
+    private elementRef: ElementRef,
     // tslint:disable-next-line:variable-name
     @Inject(DOCUMENT) private _document: Document) {
-    this.repeatArray = Array.from(Array(this.amountOfRepeats).keys());
-    localStorage.clear();
-    console.log('localStorage cleared.');
   }
 
   ngOnInit(): void {
-    //this.readFile('./helper/transition.js');
-    console.log('Skeleton OnInit');
-    const date = new Date();
-    console.log(date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '.' + date.getMilliseconds());
-
-    this._document.addEventListener('appLoaded', () => {
-      console.log('Listener Working.');
-    });
-
-    this.renderer.listen('window', 'appLoaded', () => {
-      console.log('Event listener appLoaded triggered via renderer2.');
-      //this.animatePageTransition();
-    });
-    /*
-    window.addEventListener('appLoaded', () => {
-      console.log('Event listener appLoaded triggered via window object.');
-      this.animatePageTransition();
-    });*/
-  }
-
-  ngAfterViewChecked(): void {
-    console.log('After View Checked');
+    this.repeatArray = Array.from(Array(this.amountOfRepeats).keys());
   }
 
   ngAfterContentChecked(): void {
-    console.log('After Content Checked');
     this.appendScript();
   }
 
   ngAfterViewInit(): void {
     this.loadHTMLForApplication();
     this.loadScriptsForApplication();
-    console.log('Skeleton AfterViewInit');
   }
 
-  /*readFile(path) {
-    fs.readFile(path, 'utf-8', (err, data) => {
-      if (err) {
-        throw err;
-      }
-      // Converting Raw Buffer to text
-      // data using tostring function.
-      console.log(data);
-    });
-  }*/
 
   appendScript() {
-    console.log(transition);
     let jsScript = this.renderer.createElement('script');
     jsScript.type = 'application/javascript';
     jsScript.text = 'window.addEventListener(\'appLoaded\', () => {\n' +
@@ -106,7 +75,7 @@ export class AppComponent implements OnInit, AfterViewInit, AfterViewChecked, Af
       '    skeletons.style.display = \'none\';\n' +
       '  }, 800);' +
       '});';
-    this.renderer.appendChild(this._document.body, jsScript);
+    //this.renderer.appendChild(this._document.body, jsScript);
   }
 
   loadScriptsForApplication = () => {
