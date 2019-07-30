@@ -1,0 +1,14 @@
+<div [id]="'skeleton-list-wrapper'">
+  <div [className]="'skeleton-list-toolbar'">
+    <div [id]="'skeleton-toolbar'">
+      <div *ngFor="let elem of repeatToolbarItems" [className]="'skeleton-toolbar-item-wrapper'">
+        <img [className]="'skeleton-toolbar-item'" src="../assets/skel-bar-2.gif"/>
+      </div>
+    </div>
+  </div>
+  <div [className]="'skeleton-list-content'">
+    <div *ngFor="let elem of repeatSkeletonBars" [className]="'skeleton-bar-wrapper skeleton-list-item'">
+      <img [className]="'skeleton-bar'" src="../assets/skel-bar-2.gif"/>
+    </div>
+  </div>
+</div>

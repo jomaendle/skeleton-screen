@@ -36,7 +36,7 @@ export class AppComponent implements OnInit, AfterViewInit, AfterContentChecked 
   }
 
   ngOnInit(): void {
-    this.loadCSSForApplication();
+    //this.loadCSSForApplication();
   }
 
   ngAfterContentChecked(): void {

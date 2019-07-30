@@ -1,15 +1,12 @@
-<div #mainContent>
-  <div>
-    <app-skeleton-screen
-     [amountOfRepeats]="24"
-     [amountOfColumns]="4"
-     [amountOfToolbarItems]="3"
-    >
-    </app-skeleton-screen>
-
-    <!--div *ngFor="let elem of repeatArray" [className]="'skeleton-bar-wrapper'">
-      <img [className]="'skeleton-bar'" src="../assets/skel-bar-2.gif"/>
-    </div-->
-  </div>
+<div #mainContent [id]="'main-skeleton-wrapper'">
+  <!--app-skeleton-screen
+   [amountOfRepeats]="20"
+   [amountOfColumns]="3"
+   [amountOfToolbarItems]="3"
+  >
+  </app-skeleton-screen-->
+  <app-skeleton-screen-list [flexSpan]="2"></app-skeleton-screen-list>
+  <app-skeleton-screen-list></app-skeleton-screen-list>
+  <app-skeleton-screen-list></app-skeleton-screen-list>
 </div>
 

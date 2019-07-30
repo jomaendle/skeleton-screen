@@ -8,7 +8,9 @@ import {Component, Input, OnInit, Output, ViewChild} from '@angular/core';
 export class SkeletonScreenComponent implements OnInit {
   // Configuration Input
   // Input parameters
-  @Input() amountOfRepeats: number;
+  // Hostbinding("'style: flex)
+
+  @Input() amountOfRepeats: number = 2;
   @Input() amountOfColumns: number;
   @Input() amountOfToolbarItems: number;
 
