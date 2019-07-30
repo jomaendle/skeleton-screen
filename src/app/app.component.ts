@@ -1,13 +1,11 @@
 import {
   AfterContentChecked,
-  AfterViewChecked,
   AfterViewInit,
-  Component, ElementRef, Inject, Input,
+  Component, ElementRef, Inject,
   OnInit,
   Renderer2,
   ViewChild
 } from '@angular/core';
-import * as transition from './helper/transition.js';
 import { DOCUMENT } from '@angular/common';
 
 @Component({
@@ -18,10 +16,6 @@ import { DOCUMENT } from '@angular/common';
 
 export class AppComponent implements OnInit, AfterViewInit, AfterContentChecked {
 
-  // Input parameters
-  amountOfRepeats: number;
-  amountOfColumns: number;
-
   // DOM elements
   // @ts-ignore
   @ViewChild('mainContent') mainCont;
@@ -30,52 +24,52 @@ export class AppComponent implements OnInit, AfterViewInit, AfterContentChecked 
 
   // global variables
   applicationDiv: null;
-  repeatArray = null;
   title = 'Demo';
   animationDuration = 800;    // in milliseconds
-  tranistionDone = false;
-
 
   constructor(
     private renderer: Renderer2,
     private elementRef: ElementRef,
     // tslint:disable-next-line:variable-name
     @Inject(DOCUMENT) private _document: Document) {
+    localStorage.clear();
   }
 
   ngOnInit(): void {
-    this.repeatArray = Array.from(Array(this.amountOfRepeats).keys());
+    this.loadCSSForApplication();
   }
 
   ngAfterContentChecked(): void {
-    this.appendScript();
   }
 
   ngAfterViewInit(): void {
+    this.appendScript( 'window.addEventListener(\'appLoaded\', () => {\n' +
+      'let css = localStorage.getItem(\'cssLoaded\');\n' +
+      '  if(css !== null && css !== \'\'){\n' +
+      '    console.log(\'animate Transitions\');\n' +
+      '    const mainContent =  document.getElementById(\'application-content\');\n' +
+      '    const skeletons =  document.getElementById(\'skeletons\');\n' +
+      '\n' +
+      '    // Fade in and out both pages\n' +
+      '    skeletons.style.animation = \'fadeOut 800ms ease-out\';\n' +
+      '    mainContent.style.animation = \'fadeIn 800ms ease-in forwards\';\n' +
+      '    mainContent.style.position = \'absolute\';\n' +
+      '    mainContent.style.top = 0;\n' +
+      '\n' +
+      '    window.setTimeout(() => {\n' +
+      '      skeletons.style.display = \'none\';\n' +
+      '    }, 800);\n' +
+      '  }' +
+      '});');
     this.loadHTMLForApplication();
     this.loadScriptsForApplication();
   }
 
-
-  appendScript() {
-    let jsScript = this.renderer.createElement('script');
-    jsScript.type = 'application/javascript';
-    jsScript.text = 'window.addEventListener(\'appLoaded\', () => {\n' +
-      'console.log(\'animate Transitions\');\n' +
-      '  const mainContent =  document.getElementById(\'application-content\');\n' +
-      '  const skeletons =  document.getElementById(\'skeletons\');\n' +
-      '\n' +
-      '  // Fade in and out both pages\n' +
-      '  skeletons.style.animation = \'fadeOut 800ms ease-out\';\n' +
-      '  mainContent.style.animation = \'fadeIn 800ms ease-in forwards\';\n' +
-      '  mainContent.style.position = \'absolute\';\n' +
-      '  mainContent.style.top = 0;\n' +
-      '\n' +
-      '  window.setTimeout(() => {\n' +
-      '    skeletons.style.display = \'none\';\n' +
-      '  }, 800);' +
-      '});';
-    //this.renderer.appendChild(this._document.body, jsScript);
+  appendScript(jsContent) {
+    const jsScript = this.renderer.createElement('script');
+    jsScript.type = 'text/javascript';
+    jsScript.text = jsContent;
+    this.renderer.appendChild(this.mainCont.nativeElement, jsScript);
   }
 
   loadScriptsForApplication = () => {
@@ -90,9 +84,47 @@ export class AppComponent implements OnInit, AfterViewInit, AfterContentChecked 
         console.log('Loaded script: ' + elem);
       };
       script.src = elem;
+      //this.renderer.appendChild(this.mainCont.nativeElement, script);
       this.renderer.appendChild(this.mainCont.nativeElement, script);
     });
   };
+
+  loadCSSForApplication = () => {
+    this.appendScript('const css = document.createElement(\'link\');\n' +
+      '     // const css =  this.renderer.createElement(\'link\');\n' +
+      '      css.type = \'text/css\';\n' +
+      '      css.href = \'./assets/reference-admin-app/styles.css\';\n' +
+      '      css.rel = \'stylesheet\';\n' +
+      '      css.onload = () => {\n' +
+      '        localStorage.setItem(\'cssLoaded\', \'true\');\n' +
+      '        window.dispatchEvent(new Event(\'appLoaded\'));\n' +
+      '        //this.fireEvent();\n' +
+      '      };\n' +
+      '      document.head.appendChild(css);');
+    /*
+    scripts.forEach((elem) => {
+      const css = document.createElement('link');
+     // const css =  this.renderer.createElement('link');
+      css.type = 'text/css';
+      css.href = './assets/reference-admin-app/styles.css';
+      css.rel = 'stylesheet';
+      css.onload = () => {
+        localStorage.setItem('cssLoaded', 'true');
+        window.dispatchEvent(new Event('appLoaded'));
+        //this.fireEvent();
+      };
+      document.head.appendChild(css);
+      //document.head.appendChild(this.mainCont.nativeElement, css);
+      //this.renderer.appendChild(this.mainCont.nativeElement, css);
+    });
+*/
+  }
+
+  fireEvent() {
+    console.log('loaded ccsss');
+    this.appendScript('localStorage.setItem(\'cssLoaded\', \'true\');');
+    this.appendScript('window.dispatchEvent(new Event(\'appLoaded\'))');
+  }
 
   loadHTMLForApplication = () => {
     this.applicationDiv = this.renderer.createElement('div');
@@ -105,7 +137,6 @@ export class AppComponent implements OnInit, AfterViewInit, AfterContentChecked 
   };
 
   animatePageTransition = () => {
-    this.tranistionDone = true;
     console.log('animate Transitions');
     const mainContent =  this.applicationDiv  //document.getElementById('application-content');
     const skeletons =  this.skeletons.nativeElement; //document.getElementById('skeletons');

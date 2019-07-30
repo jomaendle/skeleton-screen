@@ -1,22 +1,15 @@
 <div #mainContent>
-  <div #skeletons  id="skeletons" [ngStyle]="{'column-count': amountOfColumns}">
-    <!--app-skeleton-screen
-      [numberOfListEntries]="24"
-      [numberOfListColumns]="4"
-      [numberOfToolbarItems]="3"
-      [showListIcon]=false
-      [showHeader]=true
-      [textLength]="'even'"
-      [toolbarOrientation]="'left'"
-      [showToolbar]=true
-      [showExtraHeaderSpace]=false
-      [skeletonStyle]="'pulse'"
+  <div>
+    <app-skeleton-screen
+     [amountOfRepeats]="24"
+     [amountOfColumns]="4"
+     [amountOfToolbarItems]="3"
     >
-    </app-skeleton-screen-->
+    </app-skeleton-screen>
 
-    <div *ngFor="let elem of repeatArray" [className]="'skeleton-bar-wrapper'">
+    <!--div *ngFor="let elem of repeatArray" [className]="'skeleton-bar-wrapper'">
       <img [className]="'skeleton-bar'" src="../assets/skel-bar-2.gif"/>
-    </div>
+    </div-->
   </div>
 </div>
 

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, Output} from '@angular/core';
+import {Component, Input, OnInit, Output, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-skeleton-screen',
@@ -6,30 +6,27 @@ import {Component, Input, OnInit, Output} from '@angular/core';
   styleUrls: ['./skeleton-screen.component.scss']
 })
 export class SkeletonScreenComponent implements OnInit {
-
   // Configuration Input
-  @Input() numberOfListEntries: number;
-  @Input() numberOfListColumns: number;
-  @Input() numberOfToolbarItems: number;
-  @Input() showListIcon: boolean;
-  @Input() textLength: 'even' | 'uneven' = 'even';
-  @Input() showHeader: boolean;
-  @Input() showToolbar: boolean;
-  @Input() showExtraHeaderSpace: boolean;
-  @Input() skeletonStyle: 'shine' | 'pulse' = 'pulse';
-  @Input() toolbarOrientation: 'left' | 'center' | 'right' = 'left';
+  // Input parameters
+  @Input() amountOfRepeats: number;
+  @Input() amountOfColumns: number;
+  @Input() amountOfToolbarItems: number;
 
-  // Output values
-  @Output() showPulseAnimation: true;
+  // DOM elements
+  // @ts-ignore
+  @ViewChild('mainContent') mainCont;
+  // @ts-ignore
+  @ViewChild('skeletons') skeletons;
+
 
   // Global variables
-  arrayForListEntries: number[];
-  arrayForToolbarItems: number[];
+  repeatSkeletonBars = [];
+  repeatToolbarItem = [];
 
   constructor() { }
 
   ngOnInit() {
-    this.arrayForListEntries = [...Array(this.numberOfListEntries).keys()];
-    this.arrayForToolbarItems = [...Array(this.numberOfToolbarItems).keys()];
+    this.repeatSkeletonBars = [...Array(this.amountOfRepeats).keys()];
+    this.repeatToolbarItem = [...Array(this.amountOfToolbarItems).keys()];
   }
 }

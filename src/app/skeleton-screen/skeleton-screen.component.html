@@ -1,4 +1,13 @@
 
-<div >
-
+<div #skeletons  id="skeletons">
+  <div [id]="'skeleton-toolbar'">
+    <div *ngFor="let elem of repeatToolbarItem" [className]="'skeleton-toolbar-item-wrapper'">
+      <img [className]="'skeleton-toolbar-item'" src="../assets/skel-bar-2.gif"/>
+    </div>
+  </div>
+  <div [ngStyle]="{'column-count': amountOfColumns}">
+    <div *ngFor="let elem of repeatSkeletonBars" [className]="'skeleton-bar-wrapper'">
+      <img [className]="'skeleton-bar'" src="../assets/skel-bar-2.gif"/>
+    </div>
+  </div>
 </div>

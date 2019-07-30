@@ -1,41 +1,47 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Micro Focus - Demo</title>
-  <base href="/">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="preload" href="./assets/reference-admin-app/styles.css" as="style" onload="this.rel='stylesheet'">
-  <!--link rel="stylesheet" href="./assets/reference-admin-app/styles.css"-->
-  <style>
-    #skeletons {
-      position: absolute;
-    }
+  <head>
+    <meta charset="utf-8">
+    <title>Micro Focus - Demo</title>
+    <base href="/">
 
-    #application-content {
-      /*
-      Only for dev purpose*/
-      display: none;
-      position: absolute;
-      opacity: 0;
-    }
-  </style>
-</head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--link rel="preload" href="./assets/reference-admin-app/styles.css" as="style" onload="this.rel='stylesheet'"-->
+    <!--link rel="icon" type="image/x-icon" href="favicon.ico"-->
+    <!--link rel="stylesheet" href="./assets/reference-admin-app/styles.css"-->
+
+    <style>
+      body {
+        margin: 0 !important;
+      }
+
+      #skeletons {
+        position: absolute;
+      }
+
+      #application-content {
+        /*
+        Only for dev purpose
+        display: none;*/
+        position: absolute;
+        opacity: 0;
+      }
+    </style>
+  </head>
   <body>
-    <div>
-      <app-test amountOfColumns=4 amountOfRepeats=24></app-test>
-    </div>
+  <div>
+    <app-test></app-test>
+  </div>
 
-    <!--div id="application-content">
-      <app-root></app-root>
-    </div-->
+  <!--div id="application-content">
+    <app-root></app-root>
+  </div-->
 
-    <!--script [defer]="true" type="text/javascript" src="./assets/reference-admin-app/runtime.js"></script>
-    <script [defer]="true" type="text/javascript" src="./assets/reference-admin-app/es2015-polyfills.js" nomodule></script>
-    <script [defer]="true" type="text/javascript" src="./assets/reference-admin-app/polyfills.js"></script>
-    <script [defer]="true" type="text/javascript" src="./assets/reference-admin-app/main.js"></script-->
+  <!--script [defer]="true" type="text/javascript" src="./assets/reference-admin-app/runtime.js"></script>
+  <script [defer]="true" type="text/javascript" src="./assets/reference-admin-app/es2015-polyfills.js" nomodule></script>
+  <script [defer]="true" type="text/javascript" src="./assets/reference-admin-app/polyfills.js"></script>
+  <script [defer]="true" type="text/javascript" src="./assets/reference-admin-app/main.js"></script-->
 
-</body>
+  </body>
 </html>
