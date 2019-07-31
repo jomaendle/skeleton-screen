@@ -7,8 +7,9 @@
     </div>
   </div>
   <div [className]="'skeleton-list-content'">
-    <div *ngFor="let elem of repeatSkeletonBars" [className]="'skeleton-bar-wrapper skeleton-list-item'">
-      <img [className]="'skeleton-bar'" src="../assets/skel-bar-2.gif"/>
+    <div *ngFor="let elem of repeatSkeletonBars" [className]="'skeleton-bar-wrapper skeleton-list'">
+      <img [className]="'skeleton-bar skeleton-list-icon'" src="../assets/skel-bar-2.gif"/>
+      <img [className]="'skeleton-bar skeleton-list-item'" src="../assets/skel-bar-2.gif"/>
     </div>
   </div>
 </div>

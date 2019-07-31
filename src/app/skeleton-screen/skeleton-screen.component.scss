@@ -6,6 +6,7 @@ $skeleton-bar__margin-horizontal: 24px;
 // Skeleton Toolbar
 $skeleton-toolbar__height: 24px;
 $skeleton-toolbar__width: $skeleton-toolbar__height;
+$skeleton-toolbar__margin-horizontal: 16px;
 
 #skeletons {
   width: calc(100vw - 64px);
@@ -28,7 +29,11 @@ $skeleton-toolbar__width: $skeleton-toolbar__height;
 
 .skeleton-toolbar-item-wrapper {
   display: inline-block;
-  margin: $skeleton-bar__margin-vertical  $skeleton-bar__margin-horizontal;
+  margin: $skeleton-bar__margin-vertical $skeleton-toolbar__margin-horizontal;
+
+  &:first-child {
+    margin-left: $skeleton-bar__margin-horizontal;
+  }
 }
 
 #skeleton-toolbar {

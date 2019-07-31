@@ -1,0 +1,31 @@
+<div [id]="'skeleton-tree-wrapper'">
+  <div [className]="'skeleton-tree-toolbar'">
+    <div [id]="'skeleton-toolbar'">
+      <div *ngFor="let elem of repeatToolbarItems" [className]="'skeleton-toolbar-item-wrapper'">
+        <img [className]="'skeleton-toolbar-item'" src="../assets/skel-bar-2.gif"/>
+      </div>
+    </div>
+  </div>
+  <div [className]="'skeleton-tree-content'">
+    <div *ngFor="let elem of repeatFirstLevelItems" [className]="'skeleton-bar-wrapper skeleton-list first-level'">
+      <img [className]="'skeleton-bar skeleton-list-icon'" src="../assets/skel-bar-2.gif"/>
+      <img [className]="'skeleton-bar skeleton-list-item'" src="../assets/skel-bar-2.gif"/>
+    </div>
+    <div *ngFor="let elem of repeatSecondLevelItems" [className]="'skeleton-bar-wrapper skeleton-list second-level'">
+      <img [className]="'skeleton-bar skeleton-list-icon'" src="../assets/skel-bar-2.gif"/>
+      <img [className]="'skeleton-bar skeleton-list-item'" src="../assets/skel-bar-2.gif"/>
+    </div>
+    <div *ngFor="let elem of repeatSecondLevelItems" [className]="'skeleton-bar-wrapper skeleton-list third-level'">
+      <img [className]="'skeleton-bar skeleton-list-icon'" src="../assets/skel-bar-2.gif"/>
+      <img [className]="'skeleton-bar skeleton-list-item'" src="../assets/skel-bar-2.gif"/>
+    </div>
+    <div *ngFor="let elem of repeatFirstLevelItems" [className]="'skeleton-bar-wrapper skeleton-list first-level'">
+      <img [className]="'skeleton-bar skeleton-list-icon'" src="../assets/skel-bar-2.gif"/>
+      <img [className]="'skeleton-bar skeleton-list-item'" src="../assets/skel-bar-2.gif"/>
+    </div>
+    <div *ngFor="let elem of repeatSecondLevelItems" [className]="'skeleton-bar-wrapper skeleton-list second-level'">
+      <img [className]="'skeleton-bar skeleton-list-icon'" src="../assets/skel-bar-2.gif"/>
+      <img [className]="'skeleton-bar skeleton-list-item'" src="../assets/skel-bar-2.gif"/>
+    </div>
+  </div>
+</div>

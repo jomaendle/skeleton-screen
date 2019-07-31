@@ -10,7 +10,7 @@ export class SkeletonScreenListComponent implements OnInit {
   // Input
   @HostBinding('style.flex')
   @Input() flexSpan: number = 1;
-  @Input() numberOfListItems: number = 6;
+  @Input() numberOfListItems: number = 8;
   @Input() numberOfToolbarItems: number = 3;
 
   // global variables
@@ -24,5 +24,4 @@ export class SkeletonScreenListComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

@@ -1,5 +1,5 @@
-.skeleton-list-item {
 
+.skeleton-list {
   &:nth-of-type(4n+1) {
     width: calc(100% - 48px);
   }
@@ -15,4 +15,15 @@
   &:nth-of-type(4n+4){
     width: calc(55% - 48px);
   }
+}
+
+.skeleton-list > .skeleton-list-item {
+  width: calc(100% - 32px);
+  height: 16px;
+  display: inline;
+  margin-left: 16px;
+}
+
+.skeleton-list > .skeleton-list-icon {
+  width: 16px;
 }

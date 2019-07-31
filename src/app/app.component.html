@@ -1,12 +1,15 @@
 <div #mainContent [id]="'main-skeleton-wrapper'">
+  <div [id]="'skeletons'">
+    <app-skeleton-screen-tree></app-skeleton-screen-tree>
+    <app-skeleton-screen-list ></app-skeleton-screen-list>
+
+  </div>
   <!--app-skeleton-screen
    [amountOfRepeats]="20"
    [amountOfColumns]="3"
    [amountOfToolbarItems]="3"
   >
   </app-skeleton-screen-->
-  <app-skeleton-screen-list [flexSpan]="2"></app-skeleton-screen-list>
-  <app-skeleton-screen-list></app-skeleton-screen-list>
-  <app-skeleton-screen-list></app-skeleton-screen-list>
+
 </div>
 
