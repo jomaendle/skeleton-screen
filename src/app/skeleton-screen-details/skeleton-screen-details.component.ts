@@ -10,8 +10,17 @@ export class SkeletonScreenDetailsComponent implements OnInit {
   // Input
   @HostBinding('style.flex')
   @Input() flexSpan: number = 1;
+  @Input() numberOfListItems: number = 2;
+  @Input() numberOfShortListItems: number = 1;
 
-  constructor() { }
+  // global variables
+  repeatSkeletonBars = [];
+  repeatShortSkeletonBars = [];
+
+  constructor() {
+    this.repeatSkeletonBars = [...Array(this.numberOfListItems).keys()];
+    this.repeatShortSkeletonBars = [...Array(this.numberOfShortListItems).keys()];
+  }
 
   ngOnInit() {
   }

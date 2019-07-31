@@ -1,8 +1,9 @@
 <div #mainContent [id]="'main-skeleton-wrapper'">
   <div [id]="'skeletons'">
     <app-skeleton-screen-tree></app-skeleton-screen-tree>
-    <app-skeleton-screen-list ></app-skeleton-screen-list>
-
+    <app-skeleton-screen-list></app-skeleton-screen-list>
+    <app-skeleton-screen-list [numberOfToolbarItems]="1"></app-skeleton-screen-list>
+    <app-skeleton-screen-details [flexSpan]="2"></app-skeleton-screen-details>
   </div>
   <!--app-skeleton-screen
    [amountOfRepeats]="20"

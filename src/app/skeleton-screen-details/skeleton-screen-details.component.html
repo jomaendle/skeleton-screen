@@ -1,1 +1,17 @@
-<p>skeleton-screen-details works!</p>
+
+<div [id]="'skeleton-details-wrapper'">
+  <div [className]="'skeleton-details-header-wrapper'">
+    <img [className]="'skeleton-details-header'" src="../assets/skel-bar-2.gif"/>
+  </div>
+  <div [className]="'skeleton-details-content skeleton-wrapper-border'">
+    <div *ngFor="let elem of repeatSkeletonBars" [className]="'skeleton-bar-wrapper'">
+      <img [className]="'skeleton-bar'" src="../assets/skel-bar-2.gif"/>
+    </div>
+    <div *ngFor="let elem of repeatShortSkeletonBars" [className]="'skeleton-bar-wrapper'">
+      <img [className]="'skeleton-bar skeleton-details-short'" src="../assets/skel-bar-2.gif"/>
+    </div>
+    <div [className]="'skeleton-bar-wrapper'">
+      <img [className]="'skeleton-bar skeleton-details-button'" src="../assets/skel-bar-2.gif"/>
+    </div>
+  </div>
+</div>
