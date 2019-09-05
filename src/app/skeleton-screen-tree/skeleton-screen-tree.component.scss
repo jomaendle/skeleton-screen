@@ -1,26 +1,26 @@
 .skeleton-tree-content > .second-level {
-    padding-left: 32px;
-    width: calc(100% - 80px );
+    padding-left: 40px;
+    width: calc(100% - 88px );
 
   &:nth-of-type(3n+1) {
-    width: calc(80% - 80px );
+    width: calc(80% - 88px );
   }
 
   &:nth-of-type(3n+2) {
-    width: calc(70% - 80px );
+    width: calc(70% - 88px );
   }
 }
 
 .skeleton-tree-content > .third-level {
-    padding-left: 64px;
-    width: calc(100% - 112px );
+    padding-left: 80px;
+    width: calc(100% - 128px );
 
   &:nth-of-type(3n+1) {
-    width: calc(80% - 112px );
+    width: calc(80% - 128px );
   }
 
   &:nth-of-type(3n+2) {
-    width: calc(95% - 112px );
+    width: calc(95% - 128px );
   }
 
 }

@@ -14,6 +14,7 @@
 
   &:nth-of-type(4n+4){
     width: calc(72% - 48px);
+    margin-bottom: 72px;
   }
 }
 
@@ -26,4 +27,7 @@
 
 .skeleton-list > .skeleton-list-icon {
   width: 16px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
 }

@@ -8,6 +8,7 @@ import {Component, HostBinding, Input, OnInit} from '@angular/core';
 export class SkeletonScreenDetailsComponent implements OnInit {
 
   // Input
+  @HostBinding('style.min-width') minWidth = '340px';
   @HostBinding('style.flex')
   @Input() flexSpan: number = 1;
   @Input() numberOfListItems: number = 2;
@@ -17,12 +18,11 @@ export class SkeletonScreenDetailsComponent implements OnInit {
   repeatSkeletonBars = [];
   repeatShortSkeletonBars = [];
 
-  constructor() {
-    this.repeatSkeletonBars = [...Array(this.numberOfListItems).keys()];
-    this.repeatShortSkeletonBars = [...Array(this.numberOfShortListItems).keys()];
-  }
+  constructor() {  }
 
   ngOnInit() {
+    this.repeatSkeletonBars = [...Array(this.numberOfListItems).keys()];
+    this.repeatShortSkeletonBars = [...Array(this.numberOfShortListItems).keys()];
   }
 
 }

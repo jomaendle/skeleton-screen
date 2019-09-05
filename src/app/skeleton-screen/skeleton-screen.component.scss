@@ -7,6 +7,7 @@ $skeleton-bar__margin-horizontal: 24px;
 $skeleton-toolbar__height: 16px;
 $skeleton-toolbar__width: $skeleton-toolbar__height;
 $skeleton-toolbar__margin-horizontal: 8px;
+$skeleton-toolbar__margin-vertical: 48px;
 
 #skeletons {
   width: calc(100vw - 64px);
@@ -14,7 +15,7 @@ $skeleton-toolbar__margin-horizontal: 8px;
 }
 
 .skeleton-wrapper-border {
-  border-right: solid 1px rgb(225,225,225);
+  border-right: solid 1px rgb(235,235,235);
 }
 
 .skeleton-bar-wrapper {
@@ -24,6 +25,13 @@ $skeleton-toolbar__margin-horizontal: 8px;
 .skeleton-bar {
   width: 100%;
   height: $skeleton-bar__height;
+  border-radius: 0px;
+}
+
+.skel-bar {
+  width:200px;
+  height: 16px;
+  animation: 1s shine ease-in-out infinite;
 }
 
 .skeleton-toolbar-item {
@@ -33,14 +41,17 @@ $skeleton-toolbar__margin-horizontal: 8px;
 
 .skeleton-toolbar-item-wrapper {
   display: inline-block;
-  margin: $skeleton-bar__margin-vertical $skeleton-toolbar__margin-horizontal;
+  margin: 0 $skeleton-toolbar__margin-horizontal;
 
   &:first-child {
-    margin-left: $skeleton-bar__margin-horizontal;
+    margin-left: 0;
   }
 }
 
 #skeleton-toolbar {
+  padding: 8px 0;
+  margin: 40px 24px;
+  border-bottom: solid 1px rgb(235,235,235);
 }
 
 @keyframes fadeOut {
@@ -65,13 +76,13 @@ $skeleton-toolbar__margin-horizontal: 8px;
 
 @keyframes shine {
   0% {
-    background: rgba(170,170,170, 0.2);
+    background: rgba(170,170,170, 0.05);
   }
   50% {
-    background: rgba(170,170,170, 0.45);
+    background: rgba(170,170,170, 0.8);
   }
   100% {
-    background: rgba(170,170,170, 0.2);
+    background: rgba(170,170,170, 0.15);
   }
 }
 

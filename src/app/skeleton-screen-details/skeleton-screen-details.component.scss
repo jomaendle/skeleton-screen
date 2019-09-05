@@ -1,7 +1,12 @@
 .skeleton-details-header {
-  margin: 28px 24px;
   width: 40%;
-  height: 24px;
+  height: 32px;
+}
+
+.skeleton-details-header-wrapper {
+  padding: 8px 0;
+  margin: 24px 24px;
+  border-bottom: solid 1px rgb(235,235,235);
 }
 
 .skeleton-details-content > .skeleton-bar-wrapper > .skeleton-details-short {
@@ -10,7 +15,10 @@
 
 
 .skeleton-details-content > .skeleton-bar-wrapper > .skeleton-details-button {
-  margin-top: 192px;
+  margin-top: 252px;
   width: 80px;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
   height: 32px;
 }
